@@ -1,19 +1,26 @@
+import os
+import time
+
 def soma():
+    print("--- SOMA ---")
     x = ler_numero()
     y = ler_numero()
     return x + y
 
 def sub():
+    print("--- SUBTRAÇÃO ---")
     x = ler_numero()
     y = ler_numero()
     return x - y
 
 def mult():
+    print("--- MULTIPLICAÇÃO ---")
     x = ler_numero()
     y = ler_numero()
     return x * y
 
 def div():
+    print("--- DIVISÃO ---")
     x = ler_numero()
     while True:
          y = ler_numero()
@@ -24,11 +31,13 @@ def div():
     return x / y
 
 def menu():
+    os.system("cls")
     while True:
         print("--- CALCULADORA ---\n1. SOMA\n2. SUBTRAÇÃO\n3. MULTIPLICAÇÃO\n4. DIVISÃO\n0. SAIR")
 
         try:
             escolha = int(input("Escolha uma operação matemática: "))
+
 
             if 0 <= escolha <= 4:
                 return escolha
@@ -47,27 +56,26 @@ def ler_numero():
 
 def main():
     escolha = menu()
+    time.sleep(1)
 
     while escolha != 0:
-
         if escolha == 1:
             resultado = soma()
-            print(f"Resultado: {resultado}")
 
         elif escolha == 2:
             resultado = sub()
-            print(f"Resultado: {resultado}")
         
         elif escolha == 3:
             resultado = mult()
-            print(f"Resultado: {resultado}")
         
         elif escolha == 4:
             resultado = div()
-            print(f"Resultado: {resultado}")
+             
+        print(f"Resultado: {resultado}")
+        
+        input("\nPressione ENTER para continuar...")
 
-        else:
-            print("Opção Inválida")
+        time.sleep(1)
         
         escolha = menu()
 
