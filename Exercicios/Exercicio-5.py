@@ -1,5 +1,4 @@
 import os
-import time
 
 def soma():
     print("--- SOMA ---")
@@ -31,14 +30,12 @@ def div():
     return x / y
 
 def menu():
-    os.system("cls")
+    limpar_tela()
     while True:
         print("--- CALCULADORA ---\n1. SOMA\n2. SUBTRAÇÃO\n3. MULTIPLICAÇÃO\n4. DIVISÃO\n0. SAIR")
 
         try:
             escolha = int(input("Escolha uma operação matemática: "))
-
-
             if 0 <= escolha <= 4:
                 return escolha
             print("Escolha uma opção válida!")
@@ -54,11 +51,14 @@ def ler_numero():
         except ValueError:
             print("Digite apenas números!")
 
+def limpar_tela():
+    os.system("cls")
+
 def main():
     escolha = menu()
-    time.sleep(1)
 
     while escolha != 0:
+        limpar_tela()
         if escolha == 1:
             resultado = soma()
 
@@ -74,8 +74,6 @@ def main():
         print(f"Resultado: {resultado}")
         
         input("\nPressione ENTER para continuar...")
-
-        time.sleep(1)
         
         escolha = menu()
 
